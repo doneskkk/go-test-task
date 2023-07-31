@@ -3,7 +3,6 @@ package app
 import (
 	"fmt"
 	"github.com/labstack/echo/v4"
-	"log"
 	"test_task_guide/internal/app/endpoint"
 	"test_task_guide/internal/app/mw"
 	"test_task_guide/internal/app/service"
@@ -36,7 +35,7 @@ func (a *App) Run() error {
 
 	err := a.echo.Start(":8080")
 	if err != nil {
-		log.Fatal(err)
+		return fmt.Errorf("failed to start http server: %w", err)
 	}
 
 	return nil
